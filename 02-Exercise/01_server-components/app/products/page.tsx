@@ -1,14 +1,10 @@
-export const getProducts = async () => {
+import React from "react";
+
+const ProductPage = async () => {
   const respond = await fetch("https://dummyjson.com/products");
   if (!respond.ok) throw new Error("Failed to fetch products");
   const data = await respond.json();
-  return data.products;
-};
-
-export default async function ProductsPage() {
-  const theProducts = await getProducts();
-  const theFirstFive = theProducts.slice(0, 5);
-
+  const theFirstFive = data.products.slice(0, 5);
   return (
     <div>
       <h1>Top Five Products</h1>
@@ -22,3 +18,5 @@ export default async function ProductsPage() {
     </div>
   );
 };
+
+export default ProductPage;

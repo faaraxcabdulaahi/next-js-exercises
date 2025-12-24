@@ -1,11 +1,10 @@
-export const dynamic = "force-static";
-
 export default function AboutPage() {
+  const data = new Date().toLocaleString();
+  
   return (
     <div>
-      <h1>Thi is about us</h1>
-      <p>This is a static about us page.</p>
-      <p>Content written: {Date.now()}</p>
+      <h1>This is about us</h1>
+      <p>Current server time: {data}</p>
     </div>
   );
 }
